@@ -1,0 +1,34 @@
+<div class="card bg-dark text-white">
+  <div class="card-header">
+    Detalle Cliente
+  </div>
+  <div class="container">
+    <div class="row">
+      <div class="col-sm">
+        <ul>
+        <li>
+          <img *ngIf="cliente.imagen" src="http://localhost:8087/api/uploads/images/{{cliente.imagen}}" alt="{{cliente.imagen}}"
+          class="img-thumbnail row">
+          <img *ngIf="!cliente.imagen" src="{{imageSrc}}" alt="sin imagen"class="img-thumbnail row">
+        </li>
+        <li class="list-group">{{cliente.nombre}}</li>
+        <li>{{cliente.apellido}}</li>
+        <li>{{cliente.email}}</li>
+        <li>{{cliente.telefono}}</li>
+        <li>{{cliente.createdAt}}</li>
+        </ul>
+
+        <div class="imput-group">
+          <div class="custom-file">
+            <input (change)="seleccionarImagen($event)" type="file" class="custom-file-label" id="input">
+            <label for="inputImg" class="custom-file-label">Buscar</label>
+          </div>
+          <div class="input-group-append">
+            <button (click)="subirImagen()" class="btn btn-outline-info">Guardar</button>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>
